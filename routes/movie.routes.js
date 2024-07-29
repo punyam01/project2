@@ -1,9 +1,14 @@
 const express = require('express')
 const router= express.Router()
-const {getAllMovies,createMovie}= require('../controllers/movie.controller')
+const {getAllMovies,createMovie, getMovie, updateMovie, deleteMovie}= require('../controllers/movie.controller')
 
 router.route('/')
    .get(getAllMovies)
-   .post(createMovie);
+   .post(createMovie)
+
+router.route('/:id')
+    .get(getMovie)
+    .patch(updateMovie)
+    .delete(deleteMovie)
 
 module.exports = router;
